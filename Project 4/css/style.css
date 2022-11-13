@@ -1,0 +1,218 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    background: var(--background);
+    transition: 0.5s;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    margin: 30px;
+}
+
+.face {
+    width: 300px;
+    height: 200px;
+    transition: .4s;
+}
+
+.face1 {
+    position: relative;
+    background: var(--boxes);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 20px 20px 20px 20px;
+    z-index: 1;
+    transform: translateY(100px);
+}
+
+.card:hover .face.face1 {
+    transform: translateY(0);
+    box-shadow: var(--shadows);
+    border-radius: 20px 20px 0px 0px;
+}
+
+.face.face1 .content {
+    opacity: .2;
+    transition: 0.5s;
+    text-align: center;
+}
+
+.card:hover .face.face1 .content {
+    opacity: 1;
+}
+
+.face.face1 .content i {
+    font-size: 3em;
+    color: var(--background);
+    display: inline-block;
+}
+
+.face.face1 .content h3 {
+    font-size: 1em;
+    color: var(--background);
+    text-align: center;
+}
+
+.face.face1 .content a {
+    transition: .5s;
+}
+
+.face.face2 {
+    position: relative;
+    background: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px 20px 20px 20px;
+    box-sizing: border-box;
+    box-shadow: var(--shadow1);
+    transform: translateY(-100px);
+}
+
+.card:hover .face.face2 {
+    transform: translateY(0);
+    border-radius: 0px 0px 20px 20px;
+}
+
+p,
+a {
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+a.aa {
+    text-decoration: none;
+    color: black;
+    box-sizing: border-box;
+    outline: 1px dashed #333;
+    padding: 10px;
+    margin: 15px 0 0;
+    display: inline-block;
+}
+
+a:hover {
+    background: #333;
+    color: whitesmoke;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.center {
+    position: absolute;
+    width: 150px;
+    height: 75px;
+    bottom: -100px;
+    left: 60%;
+    margin-left: -150px;
+}
+
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--title);
+    position: absolute;
+    width: 200px;
+    height: 75px;
+    bottom: 75%;
+    left: 53%;
+    margin-left: -150px;
+}
+
+
+:root {
+    --background: rgb(214, 214, 214);
+    --boxes: rgb(15, 15, 15);
+    --shadow1: -7px -7px 40px black,
+    7px 7px 40px black;
+    
+    --shadows: inset 0 0 8px 2px rgb(0, 0, 0),
+    inset 7px 0 40px rgb(0, 0, 0),
+    inset -7px 0 40px rgb(0, 0, 0),
+    inset 7px 0 150px rgb(0, 0, 0),
+    inset -7px 0 150px rgb(0, 0, 0),
+    7px 0 40px rgb(0, 0, 0),
+    -7px 0 40px rgb(0, 0, 0);
+
+    --title: #000;
+    --check: #000;
+    --ball: #f2eee3;
+}
+
+.dark {
+    --background: black;
+    --boxes: #ffffff;
+
+    --shadow1: -7px -7px 40px rgb(255, 255, 255),
+    7px 7px 40px rgb(255, 255, 255);
+
+    --shadows: inset 0 0 60px rgb(255, 255, 255),
+    inset 7px 0 40px rgb(255, 255, 255),
+    inset -7px 0 40px rgb(255, 255, 255),
+    inset 7px 0 150px rgb(255, 255, 255),
+    inset -7px 0 150px rgb(255, 255, 255),
+    7px 0 40px rgb(255, 255, 255),
+    -7px 0 40px rgb(255, 255, 255);
+    
+    --title: #fff;
+    --check: #f2eee3;
+    --ball: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dark-mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
+    transition: 0.5s;
+}
+
+.checkbox:checked+.label .ball {
+    transform: translateX(24px);
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.label {
+    width: 50px;
+    height: 26px;
+    background: var(--check);
+    border-radius: 50px;
+    padding: 5px;
+    position: relative;
+}
+
+.ball {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    background: var(--ball);
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
